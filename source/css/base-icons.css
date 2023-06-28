@@ -1,0 +1,76 @@
+.timezone-fixer-popup {
+	position: absolute;
+	background: #607D8B;
+	border: 1px solid #455A64;
+	padding: 8px;
+	border-radius: 4px;
+	z-index: 9999;
+	font-family: 'Courier New', Courier, monospace;
+	color: white;
+	min-width: 320px;
+}
+
+/* .timezone-fixer-icon {
+	width: 22px;
+	height: 22px;
+	border-radius: 22px;
+	background: black;
+	border: 1px solid white;
+	color: white;
+	font-size: large;
+	display: inline-flex;
+	justify-content: center;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.timezone-fixer-icon:hover {
+	background: rgb(48, 48, 48);
+	cursor: pointer;
+} */
+
+
+
+
+.timezone-fixer-popup .right-align {
+	text-align: right;
+	display: block;
+}
+
+.timezone-fixer-popup small.right-align {
+	margin-top: 10px;
+}
+
+.timezone-fixer-popup .icon {
+	width: 26px;
+	vertical-align: middle
+}
+
+.timezone-fixer-popup h4 {
+	margin-top: 0px;
+	margin-bottom: 5px;
+
+}
+
+.timezone-fixer-popup .timeItemContainer {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: right;
+}
+
+.timezone-fixer-popup .timeItem {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+
+.timezone-fixer-popup label {
+	display: inline-block;
+}
+
+.timezone-fixer-popup select {
+	margin: 5px;
+	margin-left: auto;
+	/* margin-right: auto; */
+	display: inline-block;
+}
