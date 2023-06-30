@@ -26,10 +26,6 @@
 		"css": ["css/hover-popup.css"],
 		"run_at": "document_end"
 	}],
-	"web_accessible_resources": [{
-		"resources": ["img/*.png"],
-		"matches": ["https://twitter.com/*"]
-	}],
 	"action": {
 		"default_popup": "html/popup.html"
 	},

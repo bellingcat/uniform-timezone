@@ -1,11 +1,11 @@
 body {
-    font-size: 100%;
+	font-size: 100%;
 }
 
 #app {
-    min-width: 45em;
-    /* min-height: 175px; */
-    margin: 10px;
+	min-width: 45em;
+	/* min-height: 175px; */
+	margin: 10px;
 	margin-left: 15px;
 	margin-right: 15px;
 }
