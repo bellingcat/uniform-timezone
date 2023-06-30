@@ -1,7 +1,7 @@
 {
 	"name": "Uniform Timezone Extension",
 	"version": "0.0.1",
-	"description": "An awesome new browser extension",
+	"description": "Brings standardization to social media posts' dates and times.",
 	"homepage_url": "https://github.com/bellingcat/uniform-timezone",
 	"manifest_version": 3,
 	"minimum_chrome_version": "100",
