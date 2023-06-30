@@ -1,30 +1,18 @@
-// import optionsStorage from './options-storage.js';
 import HoverPopup from '../hover-popup.js';
-// import { createApp } from 'vue';
-// import HoverTimePopup from '../../vue/HoverTimePopup.vue'
-// import 'materialize-css/dist/css/materialize.min.css';
-// import 'material-design-icons/iconfont/material-icons.css';
-// import Icon from '../../img/icon-128.png';
 
-console.log('⏳ Content script loaded for', chrome.runtime.getManifest().name);
-
-
+console.log(`⏳ Twitter uniform timezone content script loaded for ${chrome.runtime.getManifest().name}`);
 const timeInstances = new Set();
 /**
- * Current twitter setup uses <a><time></a> and this code appends a <span class='timezone-fixer-icon'> after </a>
+ * This script enables uniform timestamps for twitter.com
+ * HOW: by detecting <time> elements and appending a hover popup to them.
+ * Each <time> element already contains the UTC value needed for the datetime extraction.
  */
 async function attachTimeInfo() {
-	const iconElement = document.createElement('span');
-	// iconElement.setAttribute('src', Icon)
-	iconElement.className = 'timezone-fixer-icon';
-	iconElement.innerText = "¿"
+	// const iconElement = document.createElement('span');
+	// iconElement.className = 'timezone-fixer-icon';
+	// iconElement.innerText = "¿"
 	Array.from(document.querySelectorAll("time")).map(t => {
 		if (timeInstances.has(t)) return; // skip already processed
-
-		// const app = createApp(HoverTimePopup, {props: {time: t}});
-		// const vueEl = document.createElement('span');
-		// t.appendChild(vueEl)
-		// app.mount(vueEl);
 
 		// let newIcon = iconElement.cloneNode(true)
 		new HoverPopup(t, t.getAttribute('datetime'))

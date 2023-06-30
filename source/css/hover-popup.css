@@ -8,6 +8,7 @@
 	font-family: 'Courier New', Courier, monospace;
 	color: white;
 	min-width: 320px;
+	border-radius: 1px 15px 15px 15px;
 }
 
 /* .timezone-fixer-icon {
@@ -28,8 +29,6 @@
 	background: rgb(48, 48, 48);
 	cursor: pointer;
 } */
-
-
 
 
 .timezone-fixer-popup .right-align {
@@ -73,4 +72,41 @@
 	margin-left: auto;
 	/* margin-right: auto; */
 	display: inline-block;
+}
+
+.timezone-fixer-popup a {
+	color: #64b5f6;
+	/* Material Blue 300 */
+	text-decoration: none;
+}
+
+.timezone-fixer-popup a:hover {
+	color: #42a5f5;
+	/* Material Blue 400 */
+}
+
+.timezone-fixer-popup a:visited {
+	color: #64b5f6;
+	/* Material Blue 300 */
+}
+
+
+.timezone-fixer-popup a.copy-time-value {
+	cursor: copy;
+	color: #18FFFF;
+}
+
+.timezone-fixer-popup a.copy-time-value:hover {
+	color: #00E5FF;
+}
+
+
+.timezone-fixer-popup .timeItemContainer th:first-child,
+.timezone-fixer-popup .timeItemContainer td:first-child {
+	text-align: left;
+}
+
+.timezone-fixer-popup .timeItemContainer th:nth-child(2),
+.timezone-fixer-popup .timeItemContainer td:nth-child(2) {
+	text-align: left;
 }

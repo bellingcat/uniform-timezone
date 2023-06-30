@@ -1,13 +1,13 @@
 {
-	"name": "Awesome Extension",
-	"version": "0.0.0",
+	"name": "Uniform Timezone Extension",
+	"version": "0.0.1",
 	"description": "An awesome new browser extension",
-	"homepage_url": "https://github.com/fregante/browser-extension-template",
+	"homepage_url": "https://github.com/bellingcat/uniform-timezone",
 	"manifest_version": 3,
 	"minimum_chrome_version": "100",
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "awesome-extension@notlmn.github.io",
+			"id": "todo@github.io",
 			"strict_min_version": "100.0"
 		}
 	},
@@ -15,25 +15,26 @@
 		"128": "icon.png"
 	},
 	"permissions": [
-		"storage"
+		"storage", "tabs"
 	],
 	"host_permissions": [
 		"https://github.com/*"
 	],
-	"content_scripts": [
-		{
-			"matches": [ "https://github.com/fregante/browser-extension-template/*" ],
-			"js": [ "content.js" ],
-			"css": [ "content.css" ],
-			"run_at": "document_end"
-		}
-	],
-	"options_ui": {
-		"browser_style": true,
-		"page": "options.html"
+	"content_scripts": [{
+		"matches": ["https://twitter.com/*"],
+		"js": ["js/timezone-fixers/twitter.js"],
+		"css": ["css/hover-popup.css"],
+		"run_at": "document_end"
+	}],
+	"web_accessible_resources": [{
+		"resources": ["img/*.png"],
+		"matches": ["https://twitter.com/*"]
+	}],
+	"action": {
+		"default_popup": "html/popup.html"
 	},
 	"background": {
-		"service_worker": "background.js",
+		"service_worker": "js/background.js",
 		"type": "module"
 	}
 }

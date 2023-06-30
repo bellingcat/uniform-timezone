@@ -6,6 +6,7 @@ export default new OptionsSync({
 		colorGreen: 67,
 		colorBlue: 54,
 		text: 'Set a text!',
+		customTimezone: 'Africa/Ceuta'
 	},
 	migrations: [
 		OptionsSync.migrations.removeUnused,
