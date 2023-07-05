@@ -1,3 +1,7 @@
 {
-	"mangle": false
+	"mangle": false,
+	"format": {
+		"beautify": true,
+		"indent_level": 2
+	}
 }
