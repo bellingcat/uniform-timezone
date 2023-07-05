@@ -8,7 +8,7 @@ Converts and decodes, where possible, complete upload/post date-time values into
 | Platform | Status | Credit                                                                                               |
 | -------- | ------ | ---------------------------------------------------------------------------------------------------- |
 | Twitter  | ✅      | -                                                                                                    |
-| Tiktok   | 🚧      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
+| Tiktok   | ✅      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
 | Linkedin | 🚧      | [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
 
 
@@ -27,10 +27,16 @@ The build step will create the `distribution` folder, this folder will contain t
 Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) is recommended for automatic reloading and running in a dedicated browser instance. Alternatively you can load the extension manually (see below).
 
 1. Run `npm run watch` to watch for file changes and build continuously
-1. Run `npm install --global web-ext` (only only for the first time)
-1. In another terminal, run `web-ext run -t chromium`
-1. Check that the extension is loaded by going to any of the implemented platforms
+2. Then either go to browser extensions -> upload unpacked OR
+   1. run `npm install --global web-ext` (only only for the first time)
+   2. In another terminal, run `web-ext run -t chromium`
+3. Check that the extension is loaded by going to any of the implemented platforms
 
+### Add a new timezone fixer
+To add a new fixer you need:
+1. edit [manifest.json](source/manifest.json) `content_scripts` and `web_accessible_resources` to include wildcards for the platform and reference a new content-script file
+2. JS logic in the content-script file: see the example for [twitter](source/js/timezone-fixers/twitter.js). Feel free to add additional CSS if needed.
+4. Test and make a PR with screenshots/notes on implementation if needed
 
 #### Manually
 

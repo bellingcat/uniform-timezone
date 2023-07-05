@@ -42,6 +42,7 @@
 .timezone-fixer-popup .icon {
 	width: 26px;
 	vertical-align: middle;
+	display: inline-block;
 }
 
 .timezone-fixer-popup h4 {

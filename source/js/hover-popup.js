@@ -1,7 +1,7 @@
 
 import optionsStorage from './options-storage.js';
-import Icon from '../img/icon-128.png';
-var moment = require('moment-timezone');
+import moment from 'moment-timezone';
+const Icon = chrome.runtime.getURL("img/icon-128.png"); // require/import does not work
 
 class HoverPopup {
 	/**
@@ -11,15 +11,19 @@ class HoverPopup {
 	 * @param {int} hoverDelay defaults to 200
 	 * @param {int} timeData defaults to 1500
 	 */
-	constructor(attachTo, timeData, hoverDelay, hoverAfter) {
-		console.log(`received timeData=${timeData}`)
+	constructor(attachTo, timeData, { hoverDelay = 200, hoverAfter = 1000, postUrl = "" }) {
+		console.log(`received timeData=${timeData} for ${attachTo}`)
 		this.element = attachTo;
 		this.time = timeData;
 		this.moment = moment(timeData)
 		this.version = chrome.runtime.getManifest().version;
 
-		this.hoverDelay = hoverDelay || 200;
-		this.hoverAfter = hoverAfter || 1000;
+		// optional parameters
+		this.hoverDelay = hoverDelay;
+		this.hoverAfter = hoverAfter;
+		this.postUrl = postUrl;
+
+
 		this.hoverTimeout = null;
 		this.isHovered = false;
 		this.randomId = Math.random().toString(36).substring(2, 12);
@@ -113,8 +117,10 @@ class HoverPopup {
 			</tbody>
 		</table>
 
+		${this.postUrl ? `<small>post: <a href="${this.postUrl}" title="link to post">${this.postUrl}</a><small/>` : ''}
 
 		<hr/>
+
 		<p class="right-align">Open datetime <a href="https://www.timeanddate.com/worldclock/converter.html?iso=${this.moment.format().replaceAll(/[-:.Z]/g, "")}&p1=1440" target="_blank">externally</a></p>
 		<small class="right-align">Uniform Timezone Extension <a href="https://github.com/bellingcat/uniform-timezone" target="_blank">v${this.version}</a> (please report any issues)</small>
 		`
