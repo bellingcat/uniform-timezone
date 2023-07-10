@@ -7,27 +7,10 @@
 	font-family: 'Courier New', Courier, monospace;
 	color: white;
 	min-width: 320px;
+	max-width: 600px;
 	border-radius: 1px 15px 15px;
+	word-break: break-all;
 }
-
-/* .timezone-fixer-icon {
-	width: 22px;
-	height: 22px;
-	border-radius: 22px;
-	background: black;
-	border: 1px solid white;
-	color: white;
-	font-size: large;
-	display: inline-flex;
-	justify-content: center;
-	margin-left: 5px;
-	margin-right: 5px;
-}
-
-.timezone-fixer-icon:hover {
-	background: rgb(48, 48, 48);
-	cursor: pointer;
-} */
 
 
 .timezone-fixer-popup .right-align {

@@ -7,6 +7,7 @@ const attachedElements = new Set();
  * HOW: by detecting a
  *    <span data-e2e="browser-nickname"> element (appears in the post page for example https://www.tiktok.com/@username/video/videoId)
  *    <div id="xgwrapper-0-videoId"> elements (appear in scroll mode, example: https://www.tiktok.com/foryou)
+ * 	  HARD TODO: is it possible to do it for the "you may like" section on the right side of a video page? there is no id in the html but perhaps the click event listener could somehow be intercepted/mocked.
  */
 async function attachTimeInfo() {
 	Array.from(document.querySelectorAll('span[data-e2e="browser-nickname"]')).map(span => {
@@ -24,7 +25,7 @@ async function attachTimeInfo() {
 		const vidId = div.getAttribute("id").replace("xgwrapper-0-", "");
 		const timestamp = extractUnixTimestamp(vidId)
 		console.log(`timestamp=${timestamp}`)
-		new HoverPopup(div, new Date(timestamp * 1000), { postUrl: `https://www.tiktok.com/${username}/video/${vidId}` })
+		new HoverPopup(div, new Date(timestamp * 1000), `https://www.tiktok.com/${username}/video/${vidId}`)
 		attachedElements.add(div); // set as processed
 	})
 }

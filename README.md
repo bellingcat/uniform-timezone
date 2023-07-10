@@ -1,19 +1,32 @@
 # Uniform Timezone Extension
+
 Tries to bring standardization into social media posts' date-time values.
 
 Converts and decodes, where possible, complete upload/post date-time values into standard timezones (like UTC or your machine's local timezone) and allows the conversion to any other timezone, besides exporting/copying all values.
 
+
+<img src="media/screenshot-extension.png" alt="extension preview" width="300px" align="center"/>
+
 ### Currently supported platforms
 
-| Platform | Status | Credit                                                                                               |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------- |
-| Twitter  | ✅      | -                                                                                                    |
-| Tiktok   | ✅      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
-| Linkedin | 🚧      | [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
+| Platform  | Status | Credit                                                                                               |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| Twitter   | ✅      | -                                                                                                    |
+| Tiktok    | ✅      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
+| Linkedin  | TODO   | [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
+| Instagram | TODO   | come help!                                                                                           |
+| Discord   | TODO   | come help!                                                                                           |
+| Vkontakte | TODO   | is it possible? come help!                                                                           |
+| More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)              |
+
+
+See below if you want to contribute and check the [open issues](https://github.com/bellingcat/uniform-timezone/issues).
+
+<details><summary><h1>Development & Contributing</h1></summary>
 
 
 
-# Development/contributing
+
 ### 🛠 Build locally
 
 1. Checkout the copied repository to your local machine eg. with `git clone https://github.com/my-username/my-awesome-extension/`
@@ -36,6 +49,7 @@ Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-star
 To add a new fixer you need:
 1. edit [manifest.json](source/manifest.json) `content_scripts` and `web_accessible_resources` to include wildcards for the platform and reference a new content-script file
 2. JS logic in the content-script file: see the example for [twitter](source/js/timezone-fixers/twitter.js). Feel free to add additional CSS if needed.
+3. If the platform is archivable on archive.org try to add your fixer there as well (see the example for twitter in manifest.json)
 4. Test and make a PR with screenshots/notes on implementation if needed
 
 #### Manually
@@ -63,3 +77,8 @@ Thanks to the included [GitHub Action Workflows](.github/workflows), if you set 
 
 - on a schedule, by default [every week](.github/workflows/release.yml) (but only if there are any new commits in the last tag)
 - manually, by clicking ["Run workflow"](https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/) in the Actions tab.
+
+
+
+</details>
+

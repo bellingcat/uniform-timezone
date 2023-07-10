@@ -11,7 +11,7 @@ async function attachTimeInfo() {
 	Array.from(document.querySelectorAll("time")).map(t => {
 		if (timeInstances.has(t)) return; // skip already processed
 
-		new HoverPopup(t, t.getAttribute('datetime'))
+		new HoverPopup(t, t.getAttribute('datetime'), t.closest("a")?.href)
 		timeInstances.add(t); // set as processed
 	})
 }
