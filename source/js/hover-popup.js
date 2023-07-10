@@ -9,9 +9,10 @@ class HoverPopup {
 	 * @param {Element} attachTo
 	 * @param {DateTime} timeData Date/string instance with timezone information
 	 * @param {int} hoverDelay defaults to 200
-	 * @param {int} timeData defaults to 1500
+	 * @param {int} hoverAfter defaults to 1000
+	 * @param {string} postUrl defaults to empty string - if included adds a link to the popup
 	 */
-	constructor(attachTo, timeData, { hoverDelay = 200, hoverAfter = 1000, postUrl = "" }) {
+	constructor(attachTo, timeData, postUrl = "", hoverDelay = 200, hoverAfter = 1000) {
 		console.log(`received timeData=${timeData} for ${attachTo}`)
 		this.element = attachTo;
 		this.time = timeData;
@@ -88,7 +89,8 @@ class HoverPopup {
 		let moments = [
 			{ timezone: "UTC", timeStr: this.moment.tz("UTC").format(), description: "Coordinated Universal Time or UTC is the primary time standard by which the world regulates clocks and time." },
 			{ timezone: localTimezone, timeStr: this.moment.tz(localTimezone).format(), description: "Local timezone taken from your machine" },
-			{ timezone: "UNIX timestamp", timeStr: this.moment.unix(), description: "Unix time is a date and time representation widely used in computing. It measures time by the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch." }
+			{ timezone: "UNIX timestamp", timeStr: this.moment.unix(), description: "Unix time is a date and time representation widely used in computing. It measures time by the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch." },
+			{ timezone: "Relative", timeStr: this.moment.fromNow(), description: "How long ago." },
 		]
 
 		this.popup.innerHTML = `
