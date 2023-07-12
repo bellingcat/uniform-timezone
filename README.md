@@ -15,6 +15,7 @@ Converts and decodes, where possible, complete upload/post date-time values into
 | Tiktok    | ✅      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
 | Linkedin  | TODO   | [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
 | Instagram | TODO   | come help!                                                                                           |
+| Facebook  | TODO   | come help!                                                                                           |
 | Discord   | TODO   | come help!                                                                                           |
 | Vkontakte | TODO   | is it possible? come help!                                                                           |
 | More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)              |
@@ -37,13 +38,14 @@ The build step will create the `distribution` folder, this folder will contain t
 
 ### 🏃 Run the extension
 
-Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) is recommended for automatic reloading and running in a dedicated browser instance. Alternatively you can load the extension manually (see below).
+(optional) Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) is recommended for automatic reloading and running in a dedicated browser instance. Alternatively you can load the extension manually (see below).
 
 1. Run `npm run watch` to watch for file changes and build continuously
-2. Then either go to browser extensions -> upload unpacked OR
+2. Then either [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi) or [Firefox](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#mozilla-firefox) by uploading unpacked extension (you need to manuall click the update button when making changes)
+3. OR use [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) for autoreloading
    1. run `npm install --global web-ext` (only only for the first time)
    2. In another terminal, run `web-ext run -t chromium`
-3. Check that the extension is loaded by going to any of the implemented platforms
+4. Check that the extension is loaded by going to any of the implemented platforms
 
 ### Add a new timezone fixer
 To add a new fixer you need:
@@ -51,10 +53,6 @@ To add a new fixer you need:
 2. JS logic in the content-script file: see the example for [twitter](source/js/timezone-fixers/twitter.js). Feel free to add additional CSS if needed.
 3. If the platform is archivable on archive.org try to add your fixer there as well (see the example for twitter in manifest.json)
 4. Test and make a PR with screenshots/notes on implementation if needed
-
-#### Manually
-
-You can also [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi) or [Firefox](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#mozilla-firefox).
 
 ### Publishing (WIP)
 
@@ -77,7 +75,6 @@ Thanks to the included [GitHub Action Workflows](.github/workflows), if you set 
 
 - on a schedule, by default [every week](.github/workflows/release.yml) (but only if there are any new commits in the last tag)
 - manually, by clicking ["Run workflow"](https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/) in the Actions tab.
-
 
 
 </details>
