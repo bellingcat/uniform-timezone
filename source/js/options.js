@@ -1,4 +1,4 @@
-// // eslint-disable-next-line import/no-unassigned-import
+/* eslint-disable */
 // import 'webext-base-css';
 // import './options.css';
 

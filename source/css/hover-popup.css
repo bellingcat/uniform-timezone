@@ -5,7 +5,7 @@
 	padding: 8px;
 	z-index: 9999;
 	font-family: 'Courier New', Courier, monospace;
-	color: white;
+	color: #fff;
 	min-width: 320px;
 	max-width: 600px;
 	border-radius: 1px 15px 15px;
@@ -33,13 +33,13 @@
 	margin-bottom: 5px;
 }
 
-.timezone-fixer-popup .timeItemContainer {
+.timezone-fixer-popup .time-item-container {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	text-align: right;
 }
 
-.timezone-fixer-popup .timeItem {
+.timezone-fixer-popup .time-item {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -82,12 +82,12 @@
 }
 
 
-.timezone-fixer-popup .timeItemContainer th:first-child,
-.timezone-fixer-popup .timeItemContainer td:first-child {
+.timezone-fixer-popup .time-item-container th:first-child,
+.timezone-fixer-popup .time-item-container td:first-child {
 	text-align: left;
 }
 
-.timezone-fixer-popup .timeItemContainer th:nth-child(2),
-.timezone-fixer-popup .timeItemContainer td:nth-child(2) {
+.timezone-fixer-popup .time-item-container th:nth-child(2),
+.timezone-fixer-popup .time-item-container td:nth-child(2) {
 	text-align: left;
 }

@@ -97,7 +97,7 @@ class HoverPopup {
 
 		<h4><img class="icon" src='${Icon}'/> Uniform timezone formats</h4>
 
-		<table class="timeItemContainer">
+		<table class="time-item-container">
 			<thead>
 			<tr>
 				<th>Timezone</th>
@@ -106,7 +106,7 @@ class HoverPopup {
 			</thead>
 			<tbody>
 
-			${moments.map(m => `<tr class="timeItem"><td title="${m.description}">${m.timezone}</td><td><a href="#!" class="copy-time-value" copy-value="${m.timeStr}" title="click to copy to clipboard">${m.timeStr}</a></td></tr>`).join("")}
+			${moments.map(m => `<tr class="time-item"><td title="${m.description}">${m.timezone}</td><td><a href="#!" class="copy-time-value" copy-value="${m.timeStr}" title="click to copy to clipboard">${m.timeStr}</a></td></tr>`).join("")}
 
 			<tr id="custom-${this.randomId}">
 				<td>
@@ -114,7 +114,7 @@ class HoverPopup {
 					${moment.tz.names().map(tz => `<option value="${tz}">${tz}</option>`).join("")}
 					</select>
 				</td>
-				<td class="timeItem"><a href="#!" class="copy-time-value" copy-value="DYNAMIC"  title="click to copy to clipboard"></a></td>
+				<td class="time-item"><a href="#!" class="copy-time-value" copy-value="DYNAMIC"  title="click to copy to clipboard"></a></td>
 			</tr>
 			</tbody>
 		</table>

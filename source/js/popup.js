@@ -1,3 +1,4 @@
+/* eslint-disable */
 // import { createApp } from 'vue';
 // import Popup from '../vue/Popup.vue';
 // import 'materialize-css/dist/css/materialize.min.css';
