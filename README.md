@@ -7,6 +7,7 @@ Converts and decodes, where possible, complete upload/post date-time values into
 <p align="center">
 <img src="media/screenshot-extension.png" alt="extension preview" width="500px"/>
 </p>
+
 ### Currently supported platforms
 
 | Platform  | Status | Credit                                                                                               |
