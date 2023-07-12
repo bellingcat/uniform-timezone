@@ -27,7 +27,7 @@
 		"materialize-css": "^1.0.0",
 		"moment": "^2.29.4",
 		"moment-timezone": "^0.5.43",
-		"vue": "^3.2.47",
+		"vue": "^3.3.4",
 		"webext-base-css": "^1.4.1",
 		"webext-options-sync": "^3.1.0"
 	},

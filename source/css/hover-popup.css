@@ -8,9 +8,17 @@
 	color: #fff;
 	min-width: 320px;
 	max-width: 600px;
-	border-radius: 1px 15px 15px;
+	border-radius: 8px;
 	word-break: break-all;
+	/* pointer-events: all; */
+	/* display: none;
+	for popper.js */
 }
+
+/* for popper.js */
+/* .timezone-fixer-popup[data-show] {
+	display: block;
+} */
 
 
 .timezone-fixer-popup .right-align {
