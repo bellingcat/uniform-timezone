@@ -13,7 +13,7 @@ Converts and decodes, where possible, complete upload/post date-time values into
 | Platform  | Status | Credit                                                                                               |
 | --------- | ------ | ---------------------------------------------------------------------------------------------------- |
 | Twitter   | ✅      | -                                                                                                    |
-| Tiktok    | ✔️      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
+| Tiktok    | ✅*      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
 | Linkedin  | TODO   | [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
 | Instagram | TODO   | come help!                                                                                           |
 | Facebook  | TODO   | come help!                                                                                           |
@@ -22,13 +22,13 @@ Converts and decodes, where possible, complete upload/post date-time values into
 | More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)              |
 
 - ✅ works on all known cases
-- ✔️ works on most cases with exceptions
+- ✅* works on most cases with exceptions
 
 #### Twitter ✅
 1. Hover over any time element on the page.
 2. Also works on tweets archived on web.archive.org.
 
-#### Tiktok ✔️
+#### Tiktok ✅*
 1. Hover over the a video element on the feed.
 2. Hover over the username/date next to the video (for `/video/` pages).
 3. Hover over the video thumbnails' description on a user page or on the `/explore` page.
