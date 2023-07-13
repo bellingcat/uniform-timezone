@@ -23,7 +23,7 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 | Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
 | Instagram | TODO   | come help!                                                                                                      |
 | Facebook  | TODO   | come help!                                                                                                      |
-| Youtube   | TODO   | come help! it requires the official API/ and possibly file metdata                                              |
+| Youtube   | TODO   | come help! it requires the official API/ and possibly file metadata                                              |
 | Discord   | TODO   | come help!                                                                                                      |
 | Bluesky   | TODO   | come help!                                                                                                      |
 | Vkontakte | TODO   | is it possible? come help!                                                                                      |
