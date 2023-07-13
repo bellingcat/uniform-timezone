@@ -25,16 +25,21 @@ Converts and decodes, where possible, complete upload/post date-time values into
 - ✅* works on most cases with exceptions
 
 #### Twitter ✅
+How to use?
 1. Hover over any time element on the page.
 2. Also works on tweets archived on web.archive.org.
 
 #### Tiktok ✅*
+How to use?
 1. Hover over the a video element on the feed.
 2. Hover over the username/date next to the video (for `/video/` pages).
 3. Hover over the video thumbnails' description on a user page or on the `/explore` page.
 4. NOT SUPPORTED: video thumbnails on the right pane AKA "You may like". (can you find a way to do it?)
 5. Also works on tiktoks archived on web.archive.org.
+
+
 Credit: [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)
+
 
 See below if you want to contribute and check the [open issues](https://github.com/bellingcat/uniform-timezone/issues).
 
