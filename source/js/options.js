@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable unicorn/no-empty-file */
 // import 'webext-base-css';
 // import './options.css';
 

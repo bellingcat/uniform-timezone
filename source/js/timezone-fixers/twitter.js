@@ -8,15 +8,18 @@ const timeInstances = new Set();
  * Each <time> element already contains the UTC value needed for the datetime extraction.
  */
 async function attachTimeInfo() {
-	Array.from(document.querySelectorAll("time")).map(t => {
-		if (timeInstances.has(t)) return; // skip already processed
+	for (const t of Array.from(document.querySelectorAll('time'))) {
+		if (timeInstances.has(t)) {
+			continue;
+		} // Skip already processed
 
-		new HoverPopup(t, t.getAttribute('datetime'), t.closest("a")?.href)
-		timeInstances.add(t); // set as processed
-	})
+		// eslint-disable-next-line no-new
+		new HoverPopup(t, t.getAttribute('datetime'), t.closest('a')?.href);
+		timeInstances.add(t); // Set as processed
+	}
 }
 
 /**
- * repeats the logic every 0.5s since content is dynamically loaded with infinite scroll.
+ * Repeats the logic every 0.5s since content is dynamically loaded with infinite scroll.
  */
 setInterval(attachTimeInfo, 500);
