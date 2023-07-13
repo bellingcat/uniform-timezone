@@ -4,6 +4,8 @@ Tries to bring standardization into social media posts' date-time values.
 
 Converts and decodes, where possible, complete upload/post date-time values into standard timezones (like UTC or your machine's local timezone) and allows the conversion to any other timezone, besides exporting/copying all values.
 
+Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-timezone-extensio/fhpdgikedeljapdckiegnjiendkhphlg).
+
 <p align="center">
 <img src="media/screenshot-extension.png" alt="extension preview" width="500px"/>
 </p>
