@@ -12,16 +12,17 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 
 ### Currently supported platforms
 
-| Platform  | Status | Credit                                                                                               |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------- |
-| Twitter   | ✅      | -                                                                                                    |
-| Tiktok    | ✅*      | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                   |
-| Linkedin  | TODO   | [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
-| Instagram | TODO   | come help!                                                                                           |
-| Facebook  | TODO   | come help!                                                                                           |
-| Discord   | TODO   | come help!                                                                                           |
-| Vkontakte | TODO   | is it possible? come help!                                                                           |
-| More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)              |
+| Platform  | Status | Credit                                                                                                          |
+| --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| Twitter   | ✅      | -                                                                                                               |
+| Tiktok    | ✅*     | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                              |
+| Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
+| Instagram | TODO   | come help!                                                                                                      |
+| Facebook  | TODO   | come help!                                                                                                      |
+| Discord   | TODO   | come help!                                                                                                      |
+| Bluesky   | TODO   | come help!                                                                                                      |
+| Vkontakte | TODO   | is it possible? come help!                                                                                      |
+| More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)                         |
 
 - ✅ works on all known cases
 - ✅* works on most cases with exceptions
