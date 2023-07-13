@@ -3,6 +3,7 @@
 Tries to bring standardization into social media posts' date-time values.
 
 > Why 1? Working with standard timezones (such as UTC) is useful when cross-referencing dates from distinct online platforms.
+>
 > Why 2? Some platforms actively hide the real date/time of a post (eg: tiktok, youtube, ...).
 
 This extension converts and decodes, where possible, complete upload/post date-time values into standard timezones (like UTC or your machine's local timezone) and allows the conversion to any other timezone, besides exporting/copying all values.
