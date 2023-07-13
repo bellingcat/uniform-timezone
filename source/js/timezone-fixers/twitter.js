@@ -17,6 +17,6 @@ async function attachTimeInfo() {
 }
 
 /**
- * repeats the logic every 1s since content is dynamically loaded with infinite scroll.
+ * repeats the logic every 0.5s since content is dynamically loaded with infinite scroll.
  */
-setInterval(attachTimeInfo, 1000);
+setInterval(attachTimeInfo, 500);
