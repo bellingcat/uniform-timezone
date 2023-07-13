@@ -1,8 +1,8 @@
-
-import optionsStorage from './options-storage.js';
+/* eslint-disable max-params */
 import moment from 'moment-timezone';
+import optionsStorage from './options-storage.js';
 
-const Icon = chrome.runtime.getURL("img/icon-128.png"); // require/import does not work
+const Icon = chrome.runtime.getURL('img/icon-128.png'); // Require/import does not work
 
 class HoverPopup {
 	/**
@@ -13,22 +13,21 @@ class HoverPopup {
 	 * @param {int} hoverAfter defaults to 500
 	 * @param {string} postUrl defaults to empty string - if included adds a link to the popup
 	 */
-	constructor(attachTo, timeData, postUrl = "", hoverDelay = 200, hoverAfter = 500) {
-		console.log(`received timeData=${timeData} for ${attachTo}`)
-		this.moment = moment(timeData)
-		chrome.runtime.sendMessage({ action: "store-data", data: { url: postUrl, time: this.moment.tz("UTC").format() } });
+	constructor(attachTo, timeData, postUrl = '', hoverDelay = 200, hoverAfter = 500) {
+		console.log(`received timeData=${timeData} for ${attachTo}`);
+		this.moment = moment(timeData);
+		chrome.runtime.sendMessage({action: 'store-data', data: {url: postUrl, time: this.moment.tz('UTC').format()}});
 		this.element = attachTo;
 		this.version = chrome.runtime.getManifest().version;
 
-		// optional parameters
+		// Optional parameters
 		this.hoverDelay = hoverDelay;
 		this.hoverAfter = hoverAfter;
 		this.postUrl = postUrl;
 
-
 		this.hoverTimeout = null;
 		this.isHovered = false;
-		this.randomId = Math.random().toString(36).substring(2, 12);
+		this.randomId = Math.random().toString(36).slice(2, 12);
 
 		this.element.addEventListener('mouseover', this.handleHoverStart.bind(this));
 		this.element.addEventListener('mouseout', this.handleHoverEnd.bind(this));
@@ -40,7 +39,6 @@ class HoverPopup {
 
 		this.hoverTimeout = setTimeout(() => {
 			this.showPopup();
-
 		}, this.hoverDelay);
 	}
 
@@ -56,7 +54,9 @@ class HoverPopup {
 	}
 
 	showPopup() {
-		if (this.popup !== undefined) return;
+		if (this.popup !== undefined) {
+			return;
+		}
 
 		this.popup = document.createElement('div');
 		this.popup.addEventListener('mouseover', this.handleHoverStart.bind(this));
@@ -66,17 +66,16 @@ class HoverPopup {
 
 		this.setPopupHtml();
 		this.popup.display = 'none';
-		document.body.appendChild(this.popup);
+		document.body.append(this.popup);
 		this.placePopup(this.element, this.popup);
 		this.setListeners();
 		this.loadCustomTimezone();
 		this.popup.display = 'block';
-
 	}
 
 	hidePopup() {
 		// Hide or remove the popup element as desired
-		this.popup?.remove()
+		this.popup?.remove();
 		this.popup = undefined;
 	}
 
@@ -86,25 +85,26 @@ class HoverPopup {
 		const popupLeft = targetRect.right + window.scrollX;
 
 		// Get the dimensions of the popup element
-		let popupWidth = this.popup.offsetWidth;
+		const popupWidth = this.popup.offsetWidth;
 		// Get the dimensions of the viewport
-		let viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+		const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 		// Calculate the right position if there is enough space
-		let rightPosition = targetRect.left + targetRect.width;
-		let hasSpaceOnRight = rightPosition + popupWidth <= viewportWidth;
-		// set top/left
+		const rightPosition = targetRect.left + targetRect.width;
+		const hasSpaceOnRight = rightPosition + popupWidth <= viewportWidth;
+		// Set top/left
 		this.popup.style.top = `${popupTop}px`;
 		this.popup.style.left = hasSpaceOnRight ? `${popupLeft}px` : `${Math.max(targetRect.left + window.scrollX - popupWidth, 0)}px`;
 	}
 
 	setPopupHtml() {
-		const localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-		let moments = [
-			{ timezone: "UTC", timeStr: this.moment.tz("UTC").format(), description: "Coordinated Universal Time or UTC is the primary time standard by which the world regulates clocks and time." },
-			{ timezone: localTimezone, timeStr: this.moment.tz(localTimezone).format(), description: "Local timezone taken from your machine" },
-			{ timezone: "UNIX timestamp", timeStr: this.moment.unix(), description: "Unix time is a date and time representation widely used in computing. It measures time by the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch." },
-			{ timezone: "Relative", timeStr: this.moment.fromNow(), description: "How long ago." },
-		]
+		const localTimezone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+		const moments = [
+			{timezone: 'UTC', timeStr: this.moment.tz('UTC').format(), description: 'Coordinated Universal Time or UTC is the primary time standard by which the world regulates clocks and time.'},
+			{timezone: localTimezone, timeStr: this.moment.tz(localTimezone).format(), description: 'Local timezone taken from your machine'},
+			{timezone: 'UNIX timestamp', timeStr: this.moment.unix(), description: 'Unix time is a date and time representation widely used in computing. It measures time by the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch.'},
+			{timezone: 'Relative', timeStr: this.moment.fromNow(), description: 'How long ago.'},
+		];
 
 		this.popup.innerHTML = `
 
@@ -119,12 +119,12 @@ class HoverPopup {
 			</thead>
 			<tbody>
 
-			${moments.map(m => `<tr class="time-item"><td title="${m.description}">${m.timezone}</td><td><a href="#!" class="copy-time-value" copy-value="${m.timeStr}" title="click to copy to clipboard">${m.timeStr}</a></td></tr>`).join("")}
+			${moments.map(m => `<tr class="time-item"><td title="${m.description}">${m.timezone}</td><td><a href="#!" class="copy-time-value" copy-value="${m.timeStr}" title="click to copy to clipboard">${m.timeStr}</a></td></tr>`).join('')}
 
 			<tr id="custom-${this.randomId}">
 				<td>
 					<select id="select-${this.randomId}">
-					${moment.tz.names().map(tz => `<option value="${tz}">${tz}</option>`).join("")}
+					${moment.tz.names().map(tz => `<option value="${tz}">${tz}</option>`).join('')}
 					</select>
 				</td>
 				<td class="time-item"><a href="#!" class="copy-time-value" copy-value="DYNAMIC" title="click to copy to clipboard"></a></td>
@@ -136,33 +136,37 @@ class HoverPopup {
 
 		<hr/>
 
-		<p class="right-align">Open datetime <a href="https://www.timeanddate.com/worldclock/converter.html?iso=${this.moment.format().replaceAll(/[-:.Z]/g, "")}&p1=1440" target="_blank">externally</a></p>
+		<p class="right-align">Open datetime <a href="https://www.timeanddate.com/worldclock/converter.html?iso=${this.moment.format().replaceAll(/[-:.Z]/g, '')}&p1=1440" target="_blank">externally</a></p>
 		<small class="right-align">Uniform Timezone Extension <a href="https://github.com/bellingcat/uniform-timezone" target="_blank">v${this.version}</a> (please report any issues)</small>
-		`
+		`;
 	}
+
 	setListeners() {
 		const customTZ = document.querySelector(`#custom-${this.randomId}`);
-		// customTZ.style.display = "none";
+		// CustomTZ.style.display = "none";
 
 		// listens for changes on the timezone select element
 		const selectElement = document.querySelector(`#select-${this.randomId}`);
-		selectElement.addEventListener("change", async () => {
-			let selectedTz = selectElement.value;
-			customTZ.style.display = "table-row;";
-			const customTz = this.moment.tz(selectedTz).format()
-			customTZ.querySelector("a").innerText = customTz;
-			customTZ.querySelector("a").setAttribute("copy-value", customTz);
-			await optionsStorage.set({ customTimezone: selectedTz })
+		selectElement.addEventListener('change', async () => {
+			const selectedTz = selectElement.value;
+			customTZ.style.display = 'table-row;';
+			const customTz = this.moment.tz(selectedTz).format();
+			customTZ.querySelector('a').textContent = customTz;
+			customTZ.querySelector('a').setAttribute('copy-value', customTz);
+			await optionsStorage.set({customTimezone: selectedTz});
 		});
 
-		// enables the copy-to-clipboard method
-		Array.from(document.querySelectorAll(".copy-time-value")).forEach(copy => {
-			try { copy.removeEventListener('click'); } catch (_) { }
-			copy.addEventListener('click', (e) => {
-				navigator.clipboard.writeText(e.target.getAttribute("copy-value"));
-				console.log('copied to clipboard:', e.target.getAttribute("copy-value"));
-			})
-		})
+		// Enables the copy-to-clipboard method
+		for (const copy of Array.from(document.querySelectorAll('.copy-time-value'))) {
+			try {
+				copy.removeEventListener('click');
+			} catch {}
+
+			copy.addEventListener('click', evt => {
+				navigator.clipboard.writeText(evt.target.getAttribute('copy-value'));
+				console.log('copied to clipboard:', evt.target.getAttribute('copy-value'));
+			});
+		}
 	}
 
 	async loadCustomTimezone() {
