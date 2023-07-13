@@ -26,13 +26,14 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 
 - ✅ works on all known cases
 - ✅* works on most cases with exceptions
+- TODO: come help! look at the issues or open a new one. If you want to start working on something use the issues to let the community know.
 
-#### Twitter ✅
+### Twitter ✅
 How to use?
 1. Hover over any time element on the page.
 2. Also works on tweets archived on web.archive.org.
 
-#### Tiktok ✅*
+### Tiktok ✅*
 How to use?
 1. Hover over the a video element on the feed.
 2. Hover over the username/date next to the video (for `/video/` pages).
