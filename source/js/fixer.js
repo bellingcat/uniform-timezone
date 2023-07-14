@@ -21,6 +21,7 @@ import HoverPopup from './hover-popup.js';
 /**
  * @typedef Target
  * @type {object}
+ * @property {string} name - Name of this target.
  * @property {string} selector - DOM selector that resolves timestamp nodes.
  * @property {URLResolver} url - Function that resolves the canonical URL for a timestamp.
  * @property {TimestampResolver} timestamp - Function that resolves the ISO timestamp for a node.
@@ -46,8 +47,8 @@ class Fixer {
 		);
 	}
 
-	start() {
-		setInterval(this.process.bind(this), 500);
+	start(interval = 500) {
+		setInterval(this.process.bind(this), interval);
 	}
 
 	process() {

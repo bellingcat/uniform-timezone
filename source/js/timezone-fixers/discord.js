@@ -10,6 +10,7 @@ import Fixer from '../fixer.js';
 */
 const fixer = new Fixer('Discord', [
 	{
+		name: 'Message Timestamps',
 		selector: 'time[id^="message-timestamp"]',
 		attachTo: node => node,
 		timestamp: node => node.getAttribute('datetime'),
