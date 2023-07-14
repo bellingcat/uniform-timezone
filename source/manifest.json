@@ -29,7 +29,7 @@
 		"css": ["css/hover-popup.css"],
 		"run_at": "document_end"
 	}, {
-		"matches": ["https://discord.com/*", "https://web.archive.org/web/*/https://discord.com/*"],
+		"matches": ["https://discord.com/*"],
 		"js": ["js/timezone-fixers/discord.js"],
 		"css": ["css/hover-popup.css"],
 		"run_at": "document_end"
