@@ -17,15 +17,15 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 
 ### Currently supported platforms
 
-| Platform  | Status | Credit                                                                                                          |
+| Platform  | Status | inspired by                                                                                                     |
 | --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | Twitter   | ✅      | -                                                                                                               |
 | Tiktok    | ✅*     | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                              |
+| Discord   | ✅      |                                                                                                                 |
 | Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
 | Instagram | TODO   | come help!                                                                                                      |
 | Facebook  | TODO   | come help!                                                                                                      |
-| Youtube   | TODO   | come help! it requires the official API/ and possibly file metadata                                              |
-| Discord   | TODO   | come help!                                                                                                      |
+| Youtube   | TODO   | come help! it requires the official API/ and possibly file metadata                                             |
 | Bluesky   | TODO   | come help!                                                                                                      |
 | Vkontakte | TODO   | is it possible? come help!                                                                                      |
 | More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)                         |
@@ -40,15 +40,23 @@ How to use?
 2. Also works on tweets archived on web.archive.org.
 
 ### Tiktok ✅*
-How to use?
+
+Timestamps handled by this script and how to use them:
 1. Hover over the a video element on the feed.
 2. Hover over the username/date next to the video (for `/video/` pages).
 3. Hover over the video thumbnails' description on a user page or on the `/explore` page.
-4. NOT SUPPORTED: video thumbnails on the right pane AKA "You may like". (can you find a way to do it?)
-5. Also works on tiktoks archived on web.archive.org.
+4. Also works on tiktoks archived on web.archive.org.
 
+Timestamps not handled by this script:
+1. video thumbnails on the right pane AKA "You may like". (can you find a way to do it?)
 
-Credit: [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)
+### Discord ✅*
+ Timestamps handled by this script:
+ * messages (in all channel types)
+ Timestamps not handled by this script:
+ * message edits
+ * forum thread overview
+
 
 
 See below if you want to contribute and check the [open issues](https://github.com/bellingcat/uniform-timezone/issues).
