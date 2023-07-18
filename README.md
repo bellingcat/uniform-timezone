@@ -17,18 +17,19 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 
 ### Currently supported platforms
 
-| Platform  | Status | inspired by                                                                                                     |
-| --------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| Twitter   | ✅      | -                                                                                                               |
-| Tiktok    | ✅*     | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                              |
-| Discord   | ✅      |                                                                                                                 |
-| Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/) |
-| Instagram | TODO   | come help!                                                                                                      |
-| Facebook  | TODO   | come help!                                                                                                      |
-| Youtube   | TODO   | come help! it requires the official API/ and possibly file metadata                                             |
-| Bluesky   | TODO   | come help!                                                                                                      |
-| Vkontakte | TODO   | is it possible? come help!                                                                                      |
-| More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)                         |
+| Platform  | Status | inspired by                                                                                                                                      |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Twitter   | ✅      | -                                                                                                                                                |
+| Tiktok    | ✅*     | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                                                               |
+| Discord   | ✅*     |                                                                                                                                                  |
+| Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/)                                  |
+| Youtube   | TODO   | come help! it requires the official API (see [amnesty youtube dataviewer](https://citizenevidence.amnestyusa.org/)) / and possibly file metadata |
+| Instagram | TODO   | come help!                                                                                                                                       |
+| Facebook  | TODO   | come help!                                                                                                                                       |
+| GitHub    | TODO   | come help!                                                                                                                                       |
+| Bluesky   | TODO   | come help!                                                                                                                                       |
+| Vkontakte | TODO   | is it possible? come help!                                                                                                                       |
+| More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)                                                          |
 
 - ✅ works on all known cases
 - ✅* works on most cases with exceptions
@@ -40,20 +41,22 @@ How to use?
 2. Also works on tweets archived on web.archive.org.
 
 ### Tiktok ✅*
-
-Timestamps handled by this script and how to use them:
-1. Hover over the a video element on the feed.
-2. Hover over the username/date next to the video (for `/video/` pages).
-3. Hover over the video thumbnails' description on a user page or on the `/explore` page.
-4. Also works on tiktoks archived on web.archive.org.
+Timestamps handled by this script:
+ * Individual `/video/` pages -> hover over username
+ * User page video thumbnails -> hover over username/date
+ * `/explore` feed page -> hover over username/date
+ * `/foryou` feed page -> hover over username/date
+ *. Also works on tiktoks archived on web.archive.org.
+Timestamps not handled by this script:
+ * "you may like" thumbnails -> is it possible to do it for the "you may like" section on the right side of a video page? there is no id in the html but perhaps the click event listener could somehow be intercepted/mocked.
 
 Timestamps not handled by this script:
 1. video thumbnails on the right pane AKA "You may like". (can you find a way to do it?)
 
 ### Discord ✅*
- Timestamps handled by this script:
+Timestamps handled by this script:
  * messages (in all channel types)
- Timestamps not handled by this script:
+Timestamps not handled by this script:
  * message edits
  * forum thread overview
 

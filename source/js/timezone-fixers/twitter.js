@@ -1,25 +1,19 @@
-import HoverPopup from '../hover-popup.js';
+import Fixer from '../fixer.js';
 
-console.log(`⏳ Twitter uniform timezone content script loaded for ${chrome.runtime.getManifest().name}`);
-const timeInstances = new Set();
 /**
- * This script enables uniform timestamps for twitter.com
- * HOW: by detecting <time> elements and appending a hover popup to them.
+ * This script enables uniform timestamps for twitter.com.
+ * Timestamps handled by this script: ALL
+ * How: by detecting <time> elements and appending a hover popup to them.
  * Each <time> element already contains the UTC value needed for the datetime extraction.
- */
-async function attachTimeInfo() {
-	for (const t of Array.from(document.querySelectorAll('time'))) {
-		if (timeInstances.has(t)) {
-			continue;
-		} // Skip already processed
+*/
+const fixer = new Fixer('Twitter', [
+	{
+		name: 'Tweet Timestamps',
+		selector: 'time',
+		attachTo: node => node,
+		timestamp: node => node.getAttribute('datetime'),
+		url: node => node.closest('a')?.href,
+	},
+]);
 
-		// eslint-disable-next-line no-new
-		new HoverPopup(t, t.getAttribute('datetime'), t.closest('a')?.href);
-		timeInstances.add(t); // Set as processed
-	}
-}
-
-/**
- * Repeats the logic every 0.5s since content is dynamically loaded with infinite scroll.
- */
-setInterval(attachTimeInfo, 500);
+fixer.start();

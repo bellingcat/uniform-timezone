@@ -40,11 +40,7 @@ class Fixer {
 		this.processed = new Set();
 		this.targets = targets;
 
-		console.log(
-			`⏳ ${platform} uniform timezone content script loaded for ${
-				chrome.runtime.getManifest().name
-			}`,
-		);
+		console.log(`⏳ [${chrome.runtime.getManifest().name} ${chrome.runtime.getManifest().version}] script loaded for ${platform}`);
 	}
 
 	start(interval = 500) {
