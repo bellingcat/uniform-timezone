@@ -30,6 +30,7 @@ const fixer = new Fixer('TikTok', [
 			if (!vidUrl) {
 				throw new Error(`Unable to get video id from node ${node}`);
 			}
+
 			return extractDateFromId(getVidId(vidUrl));
 		},
 		url: node => node.querySelector('a')?.href,
@@ -38,7 +39,7 @@ const fixer = new Fixer('TikTok', [
 		// Example: https://www.tiktok.com/foryou
 		name: 'Feed pages',
 		selector: 'div[id^="xgwrapper-0-"]',
-		attachTo: node => node.closest('[class*="DivContentContainer"]').querySelector("[class*='DivTextInfoContainer']"),
+		attachTo: node => node.closest('[class*="DivContentContainer"]').querySelector('[class*=\'DivTextInfoContainer\']'),
 		timestamp: node => extractDateFromId(node.getAttribute('id').replace('xgwrapper-0-', '')),
 		url(node) {
 			const username = node?.closest('div[data-e2e=\'recommend-list-item-container\']')?.querySelector('a.avatar-anchor')?.getAttribute('href')?.replace('/', '');

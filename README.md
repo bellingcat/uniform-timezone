@@ -19,7 +19,7 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 
 | Platform  | Status | inspired by                                                                                                                                      |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Twitter   | ✅      | -                                                                                                                                                |
+| Twitter   | ✅      |                                                                                                                                                  |
 | Tiktok    | ✅*     | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                                                               |
 | Discord   | ✅*     |                                                                                                                                                  |
 | Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/)                                  |
