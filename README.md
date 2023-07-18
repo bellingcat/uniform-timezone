@@ -11,8 +11,8 @@ This extension converts and decodes, where possible, complete upload/post date-t
 Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-timezone-extensio/fhpdgikedeljapdckiegnjiendkhphlg).
 
 <p align="center">
-<img src="media/screenshot-webstore.png" alt="extension preview" width="500px"/>
-<img src="media/screenshot-extension.png" alt="extension preview" width="500px"/>
+<img src="media/screenshot-webstore.png" alt="extension preview" width="400px"/>
+<img src="media/screenshot-extension.png" alt="extension preview" width="400px"/>
 </p>
 
 ### Currently supported platforms
