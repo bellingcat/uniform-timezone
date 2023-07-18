@@ -1,6 +1,6 @@
 {
 	"name": "Uniform Timezone Extension",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Brings standardization to social media posts' dates and times.",
 	"homepage_url": "https://github.com/bellingcat/uniform-timezone",
 	"manifest_version": 3,
@@ -28,6 +28,11 @@
 		"js": ["js/timezone-fixers/tiktok.js"],
 		"css": ["css/hover-popup.css"],
 		"run_at": "document_end"
+	}, {
+		"matches": ["https://discord.com/*"],
+		"js": ["js/timezone-fixers/discord.js"],
+		"css": ["css/hover-popup.css"],
+		"run_at": "document_end"
 	}],
 	"action": {
 		"default_popup": "html/popup.html"
@@ -38,7 +43,7 @@
 	},
 	"web_accessible_resources": [{
 		"resources": ["img/icon-128.png"],
-		"matches": ["https://twitter.com/*", "https://*.tiktok.com/*", "https://web.archive.org/*"]
+		"matches": ["https://twitter.com/*", "https://*.tiktok.com/*", "https://web.archive.org/*", "https://discord.com/*"]
 	}],
 	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh1mCI9IkJLVJNEYZxa/OzIS13t3UGLlXwTyISY8i0Ouy8y1NG2k0qJSX9rtbZq6DKxl+JsHyvSzOVxb8SDj4FYmdOk0URqDGzTZYJqGuWUsJ4WQJ/mHsBa/33Xvvmp+qAc5MXWzt7lGK4s9RRSy61WDxmEdKb0aqZM2zvnmOv0E7V8KpUEMVrwyrfSbiZjz6EGusrSqIhQDVijt/VQS9zUJ1jLRNcoa5PcIYPRHAr3N0IXvZeLP1Q6rtd81FXZqocHYb+HP8v5bUyfXKpuVWxNI8Bpd66dr4bdGFueVJcUg0QuR06TKfon8NWHh+iKEH6SzDmAD2yJTtqHweheZU4QIDAQAB"
 }
