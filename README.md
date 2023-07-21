@@ -22,9 +22,9 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 | Twitter   | ✅      |                                                                                                                                                  |
 | Tiktok    | ✅*     | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                                                               |
 | Discord   | ✅*     |                                                                                                                                                  |
+| Instagram | ✅      |                                                                                                                                                  |
 | Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/)                                  |
 | Youtube   | TODO   | come help! it requires the official API (see [amnesty youtube dataviewer](https://citizenevidence.amnestyusa.org/)) / and possibly file metadata |
-| Instagram | TODO   | come help!                                                                                                                                       |
 | Facebook  | TODO   | come help!                                                                                                                                       |
 | GitHub    | TODO   | come help!                                                                                                                                       |
 | Bluesky   | TODO   | come help!                                                                                                                                       |
@@ -41,6 +41,8 @@ How to use?
 2. Also works on tweets archived on web.archive.org.
 
 ### Tiktok ✅*
+How to use?
+
 Timestamps handled by this script:
  * Individual `/video/` pages -> hover over username
  * User page video thumbnails -> hover over username/date
@@ -54,15 +56,26 @@ Timestamps not handled by this script:
 1. video thumbnails on the right pane AKA "You may like". (can you find a way to do it?)
 
 ### Discord ✅*
+How to use? Hover over any time element on the page.
+
 Timestamps handled by this script:
  * messages (in all channel types)
 Timestamps not handled by this script:
  * message edits
  * forum thread overview
+ * Not enabled on the wayback machine.
 
 
+### Instagram ✅
+How to use? Hover over any time element on the page.
 
-See below if you want to contribute and check the [open issues](https://github.com/bellingcat/uniform-timezone/issues).
+ * All timestamps should be properly parsed.
+ * Not all post urls are read (possible improvement).
+ * Not enabled on the wayback machine.
+
+---
+
+#### See below if you want to contribute and check the [open issues](https://github.com/bellingcat/uniform-timezone/issues).
 
 <details><summary><h1>Development & Contributing</h1></summary>
 
