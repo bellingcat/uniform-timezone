@@ -9,14 +9,15 @@ class HoverPopup {
 	 * Expects an element to which attach the hover popup and a <time> element containing the time to display. It then injects the timezoned-data
 	 * @param {Element} attachTo
 	 * @param {DateTime} timeData Date/string instance with timezone information
+	 * @param {string} postUrl defaults to empty string - if included adds a link to the popup
+	 * @param {bool} displayOnly defaults to false, when set the popup will just appear instead of wating for a hover
 	 * @param {int} hoverDelay defaults to 200
 	 * @param {int} hoverAfter defaults to 500
-	 * @param {string} postUrl defaults to empty string - if included adds a link to the popup
 	 */
-	constructor(attachTo, timeData, postUrl = '', hoverDelay = 200, hoverAfter = 500) {
+	constructor(attachTo, timeData, postUrl = '', displayOnly = false, hoverDelay = 200, hoverAfter = 500) {
 		console.log(`received timeData=${timeData} for ${attachTo}`);
 		this.moment = moment(timeData);
-		chrome.runtime.sendMessage({action: 'store-data', data: {url: postUrl, time: this.moment.tz('UTC').format()}});
+		chrome.runtime.sendMessage({ action: 'store-data', data: { url: postUrl, time: this.moment.tz('UTC').format() } });
 		this.element = attachTo;
 		this.version = chrome.runtime.getManifest().version;
 
@@ -24,13 +25,18 @@ class HoverPopup {
 		this.hoverDelay = hoverDelay;
 		this.hoverAfter = hoverAfter;
 		this.postUrl = postUrl;
+		this.displayOnly = displayOnly;
 
 		this.hoverTimeout = null;
 		this.isHovered = false;
 		this.randomId = Math.random().toString(36).slice(2, 12);
 
-		this.element.addEventListener('mouseover', this.handleHoverStart.bind(this));
-		this.element.addEventListener('mouseout', this.handleHoverEnd.bind(this));
+		if (!this.displayOnly) {
+			this.element.addEventListener('mouseover', this.handleHoverStart.bind(this));
+			this.element.addEventListener('mouseout', this.handleHoverEnd.bind(this));
+		} else {
+			this.showPopup()
+		}
 	}
 
 	handleHoverStart() {
@@ -100,10 +106,10 @@ class HoverPopup {
 		const localTimezone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 		const moments = [
-			{timezone: 'UTC', timeStr: this.moment.tz('UTC').format(), description: 'Coordinated Universal Time or UTC is the primary time standard by which the world regulates clocks and time.'},
-			{timezone: localTimezone, timeStr: this.moment.tz(localTimezone).format(), description: 'Local timezone taken from your machine'},
-			{timezone: 'UNIX timestamp', timeStr: this.moment.unix(), description: 'Unix time is a date and time representation widely used in computing. It measures time by the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch.'},
-			{timezone: 'Relative', timeStr: this.moment.fromNow(), description: 'How long ago.'},
+			{ timezone: 'UTC', timeStr: this.moment.tz('UTC').format(), description: 'Coordinated Universal Time or UTC is the primary time standard by which the world regulates clocks and time.' },
+			{ timezone: localTimezone, timeStr: this.moment.tz(localTimezone).format(), description: 'Local timezone taken from your machine' },
+			{ timezone: 'UNIX timestamp', timeStr: this.moment.unix(), description: 'Unix time is a date and time representation widely used in computing. It measures time by the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970, the Unix epoch.' },
+			{ timezone: 'Relative', timeStr: this.moment.fromNow(), description: 'How long ago.' },
 		];
 
 		this.popup.innerHTML = `
@@ -153,14 +159,14 @@ class HoverPopup {
 			const customTz = this.moment.tz(selectedTz).format();
 			customTZ.querySelector('a').textContent = customTz;
 			customTZ.querySelector('a').setAttribute('copy-value', customTz);
-			await optionsStorage.set({customTimezone: selectedTz});
+			await optionsStorage.set({ customTimezone: selectedTz });
 		});
 
 		// Enables the copy-to-clipboard method
 		for (const copy of Array.from(document.querySelectorAll('.copy-time-value'))) {
 			try {
 				copy.removeEventListener('click');
-			} catch {}
+			} catch { }
 
 			copy.addEventListener('click', evt => {
 				navigator.clipboard.writeText(evt.target.getAttribute('copy-value'));
