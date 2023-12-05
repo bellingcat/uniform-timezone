@@ -1,6 +1,12 @@
 import HoverPopup from './hover-popup.js';
 
 /**
+ * @callback SelectedFilter
+ * @param {HTMLElement} node
+ * @returns {boolean}
+*/
+
+/**
  * @callback URLResolver
  * @param {HTMLElement} node
  * @returns {string}
@@ -23,6 +29,7 @@ import HoverPopup from './hover-popup.js';
  * @type {object}
  * @property {string} name - Name of this target.
  * @property {string} selector - DOM selector that resolves timestamp nodes.
+ * @property {SelectedFilter} filterSelected - Function that filters selected nodes (optional).
  * @property {URLResolver} url - Function that resolves the canonical URL for a timestamp.
  * @property {TimestampResolver} timestamp - Function that resolves the ISO timestamp for a node.
  * @property {AttachToResolver} attachTo - Function that resolves where the popup should attach to.
@@ -63,7 +70,8 @@ class Fixer {
 	}
 
 	getNodes(target) {
-		const nodes = Array.from(document.querySelectorAll(target.selector));
+		const nodes = Array.from(document.querySelectorAll(target.selector))
+			.filter(node => target.filterSelected === undefined || target.filterSelected(node));
 		return nodes.filter(node => !this.processed.has(node));
 	}
 }

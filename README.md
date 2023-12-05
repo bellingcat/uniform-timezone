@@ -19,15 +19,15 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 
 | Platform  | Status | inspired by                                                                                                                                      |
 | --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Twitter   | ✅      |                                                                                                                                                  |
+| Twitter/X | ✅      |                                                                                                                                                  |
 | Tiktok    | ✅*     | [tiktok-timestamp](https://bellingcat.github.io/tiktok-timestamp/)                                                                               |
 | Discord   | ✅*     |                                                                                                                                                  |
 | Instagram | ✅      |                                                                                                                                                  |
+| Bluesky   | ✅*     | works only for english translation of the platform, hard to expand                                                                               |
 | Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/)                                  |
 | Youtube   | TODO   | come help! it requires the official API (see [amnesty youtube dataviewer](https://citizenevidence.amnestyusa.org/)) / and possibly file metadata |
 | Facebook  | TODO   | come help!                                                                                                                                       |
 | GitHub    | TODO   | come help!                                                                                                                                       |
-| Bluesky   | TODO   | come help!                                                                                                                                       |
 | Vkontakte | TODO   | is it possible? come help!                                                                                                                       |
 | More      | ...    | please suggest more via [issues](https://github.com/bellingcat/uniform-timezone/issues)                                                          |
 
