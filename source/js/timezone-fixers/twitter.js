@@ -1,7 +1,7 @@
 import Fixer from '../fixer.js';
 
 /**
- * This script enables uniform timestamps for twitter.com.
+ * This script enables uniform timestamps for twitter.com/x.com.
  * Timestamps handled by this script: ALL
  * How: by detecting <time> elements and appending a hover popup to them.
  * Each <time> element already contains the UTC value needed for the datetime extraction.

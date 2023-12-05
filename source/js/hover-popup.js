@@ -137,7 +137,7 @@ class HoverPopup {
 		<hr/>
 
 		<p class="right-align">Open datetime <a href="https://www.timeanddate.com/worldclock/converter.html?iso=${this.moment.format().replaceAll(/[-:.Z]/g, '')}&p1=1440" target="_blank">externally</a></p>
-		<small class="right-align">Uniform Timezone Extension <a href="https://github.com/bellingcat/uniform-timezone" target="_blank">v${this.version}</a> (please report any issues)</small>
+		<small class="right-align">Uniform Timezone Extension <a href="https://github.com/bellingcat/uniform-timezone" target="_blank">v${this.version}</a> (please report any <a href="https://github.com/bellingcat/uniform-timezone/issues">issues</a>)</small>
 		`;
 	}
 

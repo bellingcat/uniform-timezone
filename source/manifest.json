@@ -1,6 +1,6 @@
 {
 	"name": "Uniform Timezone Extension",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "Brings standardization to social media posts' dates and times.",
 	"homepage_url": "https://github.com/bellingcat/uniform-timezone",
 	"manifest_version": 3,
@@ -19,7 +19,7 @@
 	],
 	"host_permissions": [],
 	"content_scripts": [{
-		"matches": ["https://twitter.com/*", "https://web.archive.org/web/*/https://twitter.com/*"],
+		"matches": ["https://twitter.com/*", "https://web.archive.org/web/*/https://twitter.com/*", "https://x.com/*", "https://web.archive.org/web/*/https://x.com/*"],
 		"js": ["js/timezone-fixers/twitter.js"],
 		"css": ["css/hover-popup.css"],
 		"run_at": "document_end"
