@@ -73,6 +73,13 @@ How to use? Hover over any time element on the page.
  * Not all post urls are read (possible improvement).
  * Not enabled on the wayback machine.
 
+
+### Blusky ✅*
+How to use? Hover over any time element on the page.
+
+ * Only works for the english language translation of bsky.app
+ * Not enabled on the wayback machine.
+
 ---
 
 #### See below if you want to contribute and check the [open issues](https://github.com/bellingcat/uniform-timezone/issues).
