@@ -43,6 +43,11 @@
 		"js": ["js/timezone-fixers/bluesky.js"],
 		"css": ["css/hover-popup.css"],
 		"run_at": "document_end"
+	}, {
+		"matches": ["https://web.archive.org/web/*/*"],
+		"js": ["js/timezone-fixers/web-archive.js"],
+		"css": ["css/hover-popup.css"],
+		"run_at": "document_end"
 	}],
 	"action": {
 		"default_popup": "html/popup.html"

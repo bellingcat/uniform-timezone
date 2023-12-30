@@ -11,19 +11,21 @@ class HoverPopup {
 	 * @param {DateTime} timeData Date/string instance with timezone information
 	 * @param {int} hoverDelay defaults to 200
 	 * @param {int} hoverAfter defaults to 500
-	 * @param {string} postUrl defaults to empty string - if included adds a link to the popup
+	 * @param {string} resourceLabel defaults to empty string - if included used as a label for the resourceUrl
+	 * @param {string} resourceUrl defaults to empty string - if included adds a link to the popup
 	 */
-	constructor(attachTo, timeData, postUrl = '', hoverDelay = 200, hoverAfter = 500) {
+	constructor(attachTo, timeData, resourceLabel = '', resourceUrl = '', hoverDelay = 200, hoverAfter = 500) {
 		console.log(`received timeData=${timeData} for ${attachTo}`);
 		this.moment = moment(timeData);
-		chrome.runtime.sendMessage({action: 'store-data', data: {url: postUrl, time: this.moment.tz('UTC').format()}});
+		chrome.runtime.sendMessage({action: 'store-data', data: {url: resourceUrl, time: this.moment.tz('UTC').format()}});
 		this.element = attachTo;
 		this.version = chrome.runtime.getManifest().version;
 
 		// Optional parameters
 		this.hoverDelay = hoverDelay;
 		this.hoverAfter = hoverAfter;
-		this.postUrl = postUrl;
+		this.resourceUrl = resourceUrl;
+		this.resourceLabel = resourceLabel
 
 		this.hoverTimeout = null;
 		this.isHovered = false;
@@ -132,7 +134,7 @@ class HoverPopup {
 			</tbody>
 		</table>
 
-		${this.postUrl ? `<small>post: <a href="${this.postUrl}" title="link to post">${this.postUrl}</a> - <a href="#!" class="copy-time-value" copy-value="${this.postUrl}" title="click to copy to clipboard">copy</a><small/>` : ''}
+		${this.resourceUrl ? `<small>${this.resourceLabel}: <a href="${this.resourceUrl}" title="link to resource">${this.resourceUrl}</a> - <a class="copy-time-value" copy-value="${this.resourceUrl}" title="click to copy to clipboard">copy</a><small/>` : ''}
 
 		<hr/>
 
