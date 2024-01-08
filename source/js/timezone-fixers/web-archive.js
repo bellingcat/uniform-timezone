@@ -18,7 +18,7 @@ const fixer = new Fixer('WayBackMachine', [
 		selector: 'div.captures-range-info a[href^="/web/"], a.capture-link[href^="/web/"], a.snapshot-link[href^="/web/"]',
 		attachTo: node => node,
 		timestamp(node) {
-			// href = "/web/20230304105925/example.com"
+			// Href = "/web/20230304105925/example.com"
 			const timestamp = node.getAttribute('href').match(/\/web\/(\d+)\//);
 			if (timestamp && timestamp[1]) {
 				return parseWayBackMachineDateString(timestamp[1]);
