@@ -59,7 +59,7 @@ class Fixer {
 			for (const node of this.getNodes(target)) {
 				try {
 					// eslint-disable-next-line no-new
-					new HoverPopup(target.attachTo(node), target.timestamp(node), target.url(node));
+					new HoverPopup(target.attachTo(node), target.timestamp(node), target.label ?? 'post', target.url(node));
 				} catch (error) {
 					console.error('failed to process node:', error, node);
 				} finally {
