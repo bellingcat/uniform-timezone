@@ -25,7 +25,7 @@ class HoverPopup {
 		this.hoverDelay = hoverDelay;
 		this.hoverAfter = hoverAfter;
 		this.resourceUrl = resourceUrl;
-		this.resourceLabel = resourceLabel
+		this.resourceLabel = resourceLabel;
 
 		this.hoverTimeout = null;
 		this.isHovered = false;
@@ -121,7 +121,7 @@ class HoverPopup {
 			</thead>
 			<tbody>
 
-			${moments.map(m => `<tr class="time-item"><td title="${m.description}">${m.timezone}</td><td><a href="#!" class="copy-time-value" copy-value="${m.timeStr}" title="click to copy to clipboard">${m.timeStr}</a></td></tr>`).join('')}
+			${moments.map(m => `<tr class="time-item"><td title="${m.description}">${m.timezone}</td><td><a class="copy-time-value" copy-value="${m.timeStr}" title="click to copy to clipboard">${m.timeStr}</a></td></tr>`).join('')}
 
 			<tr id="custom-${this.randomId}">
 				<td>
@@ -129,7 +129,7 @@ class HoverPopup {
 					${moment.tz.names().map(tz => `<option value="${tz}">${tz}</option>`).join('')}
 					</select>
 				</td>
-				<td class="time-item"><a href="#!" class="copy-time-value" copy-value="DYNAMIC" title="click to copy to clipboard"></a></td>
+				<td class="time-item"><a class="copy-time-value" copy-value="DYNAMIC" title="click to copy to clipboard"></a></td>
 			</tr>
 			</tbody>
 		</table>
