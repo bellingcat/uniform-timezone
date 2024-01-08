@@ -18,7 +18,7 @@ const fixer = new Fixer('WayBackMachine', [
 		selector: 'div.captures-range-info a[href^="/web/"], a.capture-link[href^="/web/"], a.snapshot-link[href^="/web/"]',
 		attachTo: node => node,
 		timestamp(node) {
-			// Href = "/web/20230304105925/example.com"
+			// href = "/web/20230304105925/example.com"
 			const timestamp = node.getAttribute('href').match(/\/web\/(\d+)\//);
 			if (timestamp && timestamp[1]) {
 				return parseWayBackMachineDateString(timestamp[1]);
@@ -37,11 +37,11 @@ const fixer = new Fixer('WayBackMachine', [
 fixer.start();
 
 const parseWayBackMachineDateString = dateString => {
-	// DateString = "20230304105925"
+	// DateString = "20230304105925" in UTC
 	if (typeof dateString !== 'string' || !/^\d{14}$/.test(dateString)) {
 		return null;
 	}
 
-	return moment(dateString, 'YYYYMMDDHHmmss').utc();
+	return moment.utc(dateString, 'YYYYMMDDHHmmss');
 };
 
