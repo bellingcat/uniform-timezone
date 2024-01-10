@@ -24,7 +24,6 @@ import HoverPopup from './hover-popup.js';
  * @returns {HTMLElement}
 */
 
-
 /**
  * @callback MutationObserverResolver
  * @param {HTMLElement} node
