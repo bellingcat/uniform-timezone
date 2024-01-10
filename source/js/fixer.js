@@ -24,6 +24,14 @@ import HoverPopup from './hover-popup.js';
  * @returns {HTMLElement}
 */
 
+
+/**
+ * @callback MutationObserverResolver
+ * @param {HTMLElement} node
+ * @param {HoverPopup} popup
+ * @returns {MutationObserver}
+*/
+
 /**
  * @typedef Target
  * @type {object}
@@ -33,6 +41,7 @@ import HoverPopup from './hover-popup.js';
  * @property {URLResolver} url - Function that resolves the canonical URL for a timestamp.
  * @property {TimestampResolver} timestamp - Function that resolves the ISO timestamp for a node.
  * @property {AttachToResolver} attachTo - Function that resolves where the popup should attach to.
+ * @property {MutationObserverResolver} observer - Function that is called upon DOM changes that can update the popup information, used when the HTML of the element hovered changes.
  */
 
 /**
