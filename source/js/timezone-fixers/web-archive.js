@@ -15,33 +15,48 @@ import Fixer from '../fixer.js';
 const fixer = new Fixer('WayBackMachine', [
 	{
 		name: 'Time of Crawl',
-		selector: 'div.captures-range-info a[href^="/web/"], a.capture-link[href^="/web/"], a.snapshot-link[href^="/web/"]',
+		selector: 'div.captures-range-info a[href^="/web/"], a.snapshot-link[href^="/web/"]',
 		attachTo: node => node,
-		timestamp(node) {
-			// Href = "/web/20230304105925/example.com"
-			const timestamp = node.getAttribute('href').match(/\/web\/(\d+)\//);
-			if (timestamp && timestamp[1]) {
-				return parseWayBackMachineDateString(timestamp[1]);
-			}
-
-			return null;
-		},
-		url(node) {
-			// `https://web.archive.org/web/20230304105925/example.com`
-			return `https://web.archive.org${node.getAttribute('href')}`;
-		},
+		timestamp: getTimestampFromHref,
+		url: getResourceUrlFromHref,
 		label: 'snapshot',
+	},
+	{
+		name: 'Last Hovered Time of Crawl',
+		selector: 'a.capture-link[href^="/web/"]',
+		attachTo: node => node,
+		timestamp: getTimestampFromHref,
+		url: getResourceUrlFromHref,
+		label: 'snapshot',
+		observe(node, popup) {
+			const observer = new MutationObserver(mutationsList => {
+				// If href attribute changed, update timestamp and resourceUrl in the popup
+				for (const mutation of mutationsList) {
+					if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
+						popup.moment = getTimestampFromHref(node);
+						popup.resourceUrl = `https://web.archive.org${node.getAttribute('href')}`;
+					}
+				}
+			});
+			observer.observe(node, {attributes: true});
+		},
 	},
 ]);
 
-fixer.start();
-
-const parseWayBackMachineDateString = dateString => {
-	// DateString = "20230304105925"
-	if (typeof dateString !== 'string' || !/^\d{14}$/.test(dateString)) {
-		return null;
+function getTimestampFromHref(node) {
+	// Href = "/web/20230304105925/example.com"
+	const timestamp = node.getAttribute('href').match(/\/web\/(\d+)\//);
+	if (timestamp && timestamp[1] && /^\d{14}$/.test(timestamp[1])) {
+		return moment.utc(timestamp[1], 'YYYYMMDDHHmmss');
 	}
 
-	return moment(dateString, 'YYYYMMDDHHmmss').utc();
-};
+	return null;
+}
 
+function getResourceUrlFromHref(node) {
+	// Href = "/web/20230304105925/example.com"
+	// ResourceUrl = 'https://web.archive.org/web/20230304105925/example.com'
+	return `https://web.archive.org${node.getAttribute('href')}`;
+}
+
+fixer.start();

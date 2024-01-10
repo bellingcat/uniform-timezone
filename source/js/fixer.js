@@ -25,6 +25,13 @@ import HoverPopup from './hover-popup.js';
 */
 
 /**
+ * @callback MutationObserverResolver
+ * @param {HTMLElement} node
+ * @param {HoverPopup} popup
+ * @returns {MutationObserver}
+*/
+
+/**
  * @typedef Target
  * @type {object}
  * @property {string} name - Name of this target.
@@ -33,6 +40,7 @@ import HoverPopup from './hover-popup.js';
  * @property {URLResolver} url - Function that resolves the canonical URL for a timestamp.
  * @property {TimestampResolver} timestamp - Function that resolves the ISO timestamp for a node.
  * @property {AttachToResolver} attachTo - Function that resolves where the popup should attach to.
+ * @property {MutationObserverResolver} observer - Function that is called upon DOM changes that can update the popup information, used when the HTML of the element hovered changes.
  */
 
 /**
@@ -58,8 +66,10 @@ class Fixer {
 		for (const target of this.targets) {
 			for (const node of this.getNodes(target)) {
 				try {
-					// eslint-disable-next-line no-new
-					new HoverPopup(target.attachTo(node), target.timestamp(node), target.label ?? 'post', target.url(node));
+					const popup = new HoverPopup(target.attachTo(node), target.timestamp(node), target.label ?? 'post', target.url(node));
+					if (target.observe) {
+						target.observe(node, popup);
+					}
 				} catch (error) {
 					console.error('failed to process node:', error, node);
 				} finally {
