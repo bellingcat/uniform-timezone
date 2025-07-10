@@ -25,7 +25,7 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 | Instagram | ✅      |                                                                                                                                                  |
 | Bluesky   | ✅*     | works only for english translation of the platform, hard to expand                                                                               |
 | Wayback Machine   | ✅     | |
-| Linkedin  | TODO   | come help! [Linkedin-post-timestamp-extractor](https://ollie-boyd.github.io/Linkedin-post-timestamp-extractor/)                                  |
+| Linkedin  | ✅*   | works for time info, not for URL extraction |
 | Youtube   | TODO   | come help! it requires the official API (see [amnesty youtube dataviewer](https://citizenevidence.amnestyusa.org/)) / and possibly file metadata |
 | Facebook  | TODO   | come help!                                                                                                                                       |
 | GitHub    | TODO   | come help!                                                                                                                                       |
@@ -75,11 +75,16 @@ How to use? Hover over any time element on the page.
  * Not enabled on the wayback machine.
 
 
-### Blusky ✅*
+### Bluesky ✅*
 How to use? Hover over any time element on the page.
 
  * Only works for the english language translation of bsky.app
  * Not enabled on the wayback machine.
+
+### Linkedin ✅*
+How to use? Hover over any time element on the page.
+
+ * Does not extract the POST URLs, and the comment URLs are references but can't always be resolved/opened.
 
 ---
 
