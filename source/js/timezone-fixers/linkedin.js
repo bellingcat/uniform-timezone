@@ -15,8 +15,9 @@ const fixer = new Fixer('LinkedIn', [
 		selector: 'span.update-components-actor__sub-description > span',
 		attachTo: node => node,
 		timestamp: getPublicationTimestamp,
+		filterSelected: checkPostUrl,
 		label: 'publication',
-		url: _ => null,
+		url: _ => window.location.origin + window.location.pathname,
 	},
 	{
 		name: 'Comment Timestamp',
@@ -28,13 +29,15 @@ const fixer = new Fixer('LinkedIn', [
 	},
 ]);
 
-function getPublicationTimestamp(node) {
-	// TODO: try to get it from URL
-	const parnt = node.closest('.feed-shared-update-v2');
-	if (parnt.getAttributeNames().includes('data-urn')) {
-		const _id = Number.parseInt(parnt.dataset.urn.split(':')[3], 10);
-		const first41Bits = Number.parseInt((_id).toString(2).slice(0, 41), 2);
-		return moment.unix(first41Bits / 1000);
+function getPublicationTimestamp(_) {
+	if (document.URL.startsWith('https://www.linkedin.com/posts/')) {
+		const linkedinURL = document.URL;
+		const regex = /(\d{19})/;
+		const postId = regex.exec(linkedinURL)?.pop();
+		if (postId !== undefined) {
+			const first41Bits = Number.parseInt((Number.parseInt(postId, 10)).toString(2).slice(0, 41), 2);
+			return moment.unix(first41Bits / 1000);
+		}
 	}
 
 	return null;
@@ -60,6 +63,10 @@ function getCommentUrl(node) {
 	}
 
 	return null;
+}
+
+function checkPostUrl(_) {
+	return document.URL.startsWith('https://www.linkedin.com/posts/');
 }
 
 fixer.start();
