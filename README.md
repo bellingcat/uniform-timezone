@@ -25,7 +25,7 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 | Instagram | ✅      |                                                                                                                                                  |
 | Bluesky   | ✅*     | works only for english translation of the platform, hard to expand                                                                               |
 | Wayback Machine   | ✅     | |
-| Linkedin  | ✅*   | works for time info, not for URL extraction |
+| Linkedin  | ✅*   | works for comments and post (posts only on the post page, not in the feed) |
 | Youtube   | TODO   | come help! it requires the official API (see [amnesty youtube dataviewer](https://citizenevidence.amnestyusa.org/)) / and possibly file metadata |
 | Facebook  | TODO   | come help!                                                                                                                                       |
 | GitHub    | TODO   | come help!                                                                                                                                       |
