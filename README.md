@@ -27,6 +27,7 @@ Install on [brave/chrome](https://chrome.google.com/webstore/detail/uniform-time
 | Wayback Machine   | ✅     | |
 | Linkedin  | ✅*   | works for comments, posts, and feed items |
 | Threads   | ✅      |                                                                                                                                                  |
+| Reddit    | ✅*     | works for threads and posts/comments, not dms |
 | Youtube   | TODO   | come help! it requires the official API (see [amnesty youtube dataviewer](https://citizenevidence.amnestyusa.org/)) / and possibly file metadata |
 | Facebook  | TODO   | come help!                                                                                                                                       |
 | GitHub    | TODO   | come help!                                                                                                                                       |
@@ -90,6 +91,14 @@ How to use? Hover over any time element on the page.
 ### Threads ✅
 How to use?
 1. Hover over any time element on the page.
+
+### Reddit ✅*
+How to use? Hover over any time element on the page.
+
+Timestamps handled by this script:
+ * posts and comments/posts (new and old Reddit UI)
+
+Timestamps in DMs/chats are NOT handled.
 
 ---
 

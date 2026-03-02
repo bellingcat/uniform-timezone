@@ -92,6 +92,11 @@
 }
 
 
+.timezone-fixer-popup .time-item-container th,
+.timezone-fixer-popup .time-item-container td {
+	background: #607d8b;
+}
+
 .timezone-fixer-popup .time-item-container th:first-child,
 .timezone-fixer-popup .time-item-container td:first-child {
 	text-align: left;
